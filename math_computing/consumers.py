@@ -39,7 +39,7 @@ class MathComputing(AsyncConsumer):
 
     async def websocket_receive(self, event):
         text_data = event.get('text', None)
-        bytes_data = event.get('bytes', None)
+        # bytes_data = event.get('bytes', None)
 
         if text_data:
             text_data_json = json.loads(text_data)
@@ -66,7 +66,8 @@ class MathComputing(AsyncConsumer):
                 )
 
     async def revoke_work_task(self, event):
-        if self.work_id is not None and (task_async_result := app.AsyncResult(self.work_id)).state != 'SUCCESS':
+        if self.work_id is not None and \
+                (task_async_result := app.AsyncResult(self.work_id)).state != 'SUCCESS':
             task_async_result.revoke(terminate=True)
 
             await self.send({
