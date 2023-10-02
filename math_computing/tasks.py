@@ -5,11 +5,12 @@ from asgiref.sync import async_to_sync
 from online_computing.celery import logger
 from celery import shared_task
 from channels.layers import get_channel_layer
+from online_computing.celery import math_computing_app
 
 import json
 
 
-@shared_task(bind=True)
+@math_computing_app.task(bind=True)
 def fibonacci(self, value: int, group_name=None):
     """
     this function for fibonacci pattern task

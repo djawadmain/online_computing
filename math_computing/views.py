@@ -9,7 +9,7 @@ import random
 # Create your views here.
 
 def fib_test(request):
-    number = random.randint(-100, 100)
+    number = random.randint(-10, 100) * 100
 
     result = fibonacci.apply_async([number])
 

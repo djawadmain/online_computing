@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-%7k1gu^_+f!y!+ep1j&jlrayeb89&29jtlz1xmr40=_ql3_6+0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -157,7 +157,7 @@ CELERY_TIMEZONE = 'UTC'
 CELERY_ENABLE_UTC = True
 
 CELERY_TASK_ROUTES = {
-    'online_computing.tasks.fibonacci': {'queue': 'fib_queue'}
+    'math_computing.tasks.fibonacci': {'queue': 'fib_queue'}
 }
 
 CELERY_RESULT_EXPIRES = 3600
